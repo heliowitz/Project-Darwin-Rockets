@@ -1,6 +1,6 @@
 var rocket;
 var population;
-var lifespan = 200;
+var lifespan = 400;
 var lifeP;
 var count = 0;
 var target;

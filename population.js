@@ -10,11 +10,12 @@ function Population(){
 	this.evaluate = function(){
 		var maxfit = 0;
 		for (var i = 0; i < this.popsize; i++){
-			this.rocket[i].calcFitness();
+			this.rockets[i].calcFitness();
 			if (this.rockets[i].fitness > maxfit){
 				maxfit = this.rockets[i].fitness;
 			}
 		}
+		console.log(maxfit);
 
 		for (var i = 0; i < this.popsize; i++){
 			this.rockets[i].fitness /= maxfit;
@@ -24,7 +25,7 @@ function Population(){
 		for (var i = 0; i < this.popsize; i++){
 			var n = this.rockets[i].fitness*100;
 			for (var j = 0; j<n; j++){
-				this.matingpool.add(this.rockets[i]);
+				this.matingPool.push(this.rockets[i]);
 			}
 		}
 	}
@@ -37,7 +38,7 @@ function Population(){
 			var childDNA = momDNA.crossover(dadDNA);
 			newRockets[i] = new Rocket(childDNA);
 		}
-		this.rockets = newRockets();
+		this.rockets = newRockets;
 	}
 
 	this.run = function(){
