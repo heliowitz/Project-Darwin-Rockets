@@ -36,6 +36,7 @@ function Population(){
 			var momDNA = random(this.matingPool).dna;
 			var dadDNA = random(this.matingPool).dna;
 			var childDNA = momDNA.crossover(dadDNA);
+			childDNA.mutation();
 			newRockets[i] = new Rocket(childDNA);
 		}
 		this.rockets = newRockets;

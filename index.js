@@ -24,5 +24,9 @@ function draw(){
 		population.selection();
 		count=0;
 	}
+
+	fill(255);
+	rect(100, 150, 200, 10);
+
 	ellipse(target.x, target.y, 16,16);
 }
