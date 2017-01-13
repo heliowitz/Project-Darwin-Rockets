@@ -3,9 +3,9 @@ var population;
 var count = 0;
 var target;
 
-var magnitude = 0.5;
-var lifespan = 300;
-var decisionRate = 2;
+var magnitude = 4;
+var lifespan = 100;
+var decisionRate = 1;
 
 var rx, ry, rw, rh;
 
@@ -17,9 +17,9 @@ function setup() {
 
 	target=createVector(width/2, 50);
 
-	rx = width/2-250;
-	ry = height*0.75;
-	rw = 500;
+	rx = width/2-150;
+	ry = height*0.50;
+	rw = 300;
 	rh = 10;
 }
 
@@ -34,8 +34,8 @@ function draw(){
 		count=0;
 	}
 
-	// fill(255);
-	// rect(width/2-250, height*0.75, 500, 10);
+	fill(255);
+	rect(rx, ry, rw, rh);
 
 	// rect(width*0.25-100, height*0.40, 200, 10);
 	// rect(width*0.75-100, height*0.40, 200, 10);

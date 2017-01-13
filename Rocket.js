@@ -35,10 +35,10 @@ function Rocket(dna){
 			this.pos = target.copy();
 		}
 
-		// if (this.pos.x > rx && this.pos.x < rx + rw 
-		// 	&& this.pos.y > ry && this.pos.y < ry+rh){
-		// 	this.crashed = true;
-		// }
+		if (this.pos.x > rx && this.pos.x < rx + rw 
+			&& this.pos.y > ry && this.pos.y < ry+rh){
+			this.crashed = true;
+		}
 
 		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
 			this.crashed=true;
@@ -48,11 +48,6 @@ function Rocket(dna){
 			this.vel.add(this.acc);
 			this.pos.add(this.vel);
 			this.acc.mult(0);
-			// this.applyForce(this.dna.genes[count]);	
-
-			// this.newDir = this.dir * someCalculation (this.dna.genes[count])
-			// this.applyForce(newDir)
-			// this.dir = this.newDir
 
 			if (count%decisionRate ==0){
 				this.newDir = p5.Vector.fromAngle(this.dir.heading()+this.dna.genes[count/decisionRate]);
@@ -66,6 +61,10 @@ function Rocket(dna){
 			this.vel.limit(4);	
 		}
 	}
+
+	// this.collisionDetection = function(){
+		
+	// }
 
 	this.show = function(){
 		var theta = this.vel.heading() + radians(90);
