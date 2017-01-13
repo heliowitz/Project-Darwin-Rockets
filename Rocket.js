@@ -19,7 +19,7 @@ function Rocket(dna){
 			this.fitness *= 10;
 		}
 		if (this.crashed){
-			this.fitness = 1;
+			this.fitness /=10;
 		}
 	}
 
@@ -33,17 +33,22 @@ function Rocket(dna){
 			this.reached = true;
 			this.pos = target.copy();
 		}
-		// Collision detection
+
 		if (this.pos.x > rx && this.pos.x < rx + rw 
 			&& this.pos.y > ry && this.pos.y < ry+rh){
 			this.crashed = true;
+		}
+
+		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
+			this.crashed=true;
 		}
 
 		if (!this.reached && !this.crashed){
 			this.vel.add(this.acc);
 			this.pos.add(this.vel);
 			this.acc.mult(0);
-			this.applyForce(this.dna.genes[count]);		
+			this.applyForce(this.dna.genes[count]);	
+			this.vel.limit(4);	
 		}
 	}
 
