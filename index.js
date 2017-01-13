@@ -3,8 +3,8 @@ var population;
 var count = 0;
 var target;
 
-var magnitude = 4;
-var lifespan = 150;
+var magnitude = 0.5;
+var lifespan = 350;
 var decisionRate = 1;
 
 var r1x, r1y, r2x, r2y, r3x, r3y, rw, rh;
@@ -17,13 +17,13 @@ function setup() {
 
 	target=createVector(width/2, 50);
 
-	r1x = width/2-150;
-	r1y = height*0.60;
-	r2x = width*0.25-150;
+	rw = 200;
+	r1x = width/2-100;
+	r1y = height*0.50;
+	r2x = width*0.25-100;
 	r2y = height*0.30
-	r3x = width*0.75-150;
+	r3x = width*0.75-100;
 	r3y = height*0.30
-	rw = 300;
 	rh = 10;
 }
 
@@ -38,10 +38,10 @@ function draw(){
 		count=0;
 	}
 
-	fill(255);
+	fill(255, 150);
 	rect(r1x, r1y, rw, rh);
 	rect(r2x, r2y, rw, rh);
 	rect(r3x, r3y, rw, rh);
 
-	ellipse(target.x, target.y, 16,16);
+	ellipse(target.x, target.y, 16,16, 150);
 }

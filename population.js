@@ -1,6 +1,6 @@
 function Population(){
 	this.rockets=[];
-	this.popsize = 25;
+	this.popsize = 50;
 	this.matingPool = [];
 
 	for (var i = 0; i <this.popsize; i++){
@@ -17,7 +17,6 @@ function Population(){
 			}
 			avgfit += this.rockets[i].fitness;
 		}
-		// console.log(maxfit);
 		console.log(avgfit/this.rockets.length);
 
 		for (var i = 0; i < this.popsize; i++){

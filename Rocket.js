@@ -4,6 +4,7 @@ function Rocket(dna){
 	this.acc=createVector();
 	this.reached = false;
 	this.crashed = false;
+	this.time = 0;
 	this.dir = createVector(0,-1,0);
 
 	if (dna){
@@ -15,12 +16,12 @@ function Rocket(dna){
 
 	this.calcFitness = function(){
 		var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-		this.fitness = map(d,0,width, width,0) + count*5;
+		this.fitness = map(d,0,width, width,0);
 		if (this.reached){
-			this.fitness = this.fitness*10 + count*10;
+			this.fitness = this.fitness*50;
 		}
 		if (this.crashed){
-			this.fitness /=10;
+			this.fitness /=50;
 		}
 	}
 
@@ -51,6 +52,7 @@ function Rocket(dna){
 			}
 			this.newDir.setMag(magnitude);
 			this.applyForce(this.newDir);
+			this.time++;
 			this.dir = this.newDir;
 			
 			this.vel.limit(4);	
