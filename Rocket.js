@@ -4,6 +4,7 @@ function Rocket(dna){
 	this.acc=createVector();
 	this.reached = false;
 	this.crashed = false;
+	this.dir = createVector(0,-1,0);
 
 	if (dna){
 		this.dna=dna;
@@ -34,10 +35,10 @@ function Rocket(dna){
 			this.pos = target.copy();
 		}
 
-		if (this.pos.x > rx && this.pos.x < rx + rw 
-			&& this.pos.y > ry && this.pos.y < ry+rh){
-			this.crashed = true;
-		}
+		// if (this.pos.x > rx && this.pos.x < rx + rw 
+		// 	&& this.pos.y > ry && this.pos.y < ry+rh){
+		// 	this.crashed = true;
+		// }
 
 		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
 			this.crashed=true;
@@ -47,19 +48,33 @@ function Rocket(dna){
 			this.vel.add(this.acc);
 			this.pos.add(this.vel);
 			this.acc.mult(0);
-			this.applyForce(this.dna.genes[count]);	
+			// this.applyForce(this.dna.genes[count]);	
+
+			// this.newDir = this.dir * someCalculation (this.dna.genes[count])
+			// this.applyForce(newDir)
+			// this.dir = this.newDir
+
+			if (count%decisionRate ==0){
+				this.newDir = p5.Vector.fromAngle(this.dir.heading()+this.dna.genes[count/decisionRate]);
+			} else {
+				this.newDir = this.dir;
+			}
+			this.newDir.setMag(magnitude);
+			this.applyForce(this.newDir);
+			this.dir = this.newDir;
+			
 			this.vel.limit(4);	
 		}
 	}
 
 	this.show = function(){
+		var theta = this.vel.heading() + radians(90);
 		push();
 		noStroke();
-		fill(255,150);
+		fill(255,170,238,150);
 		translate(this.pos.x, this.pos.y);
-		rotate(this.vel.heading());
-		rectMode(CENTER);
-		rect(0,0,25,5);
+		rotate(theta);
+		triangle(0,20,5,0,10,20);
 		pop();
 	}
 }

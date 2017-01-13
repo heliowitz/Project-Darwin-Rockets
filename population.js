@@ -9,13 +9,16 @@ function Population(){
 
 	this.evaluate = function(){
 		var maxfit = 0;
+		var avgfit = 0;
 		for (var i = 0; i < this.popsize; i++){
 			this.rockets[i].calcFitness();
 			if (this.rockets[i].fitness > maxfit){
 				maxfit = this.rockets[i].fitness;
 			}
+			avgfit += this.rockets[i].fitness;
 		}
-		console.log(maxfit);
+		// console.log(maxfit);
+		console.log(avgfit/this.rockets.length);
 
 		for (var i = 0; i < this.popsize; i++){
 			this.rockets[i].fitness /= maxfit;

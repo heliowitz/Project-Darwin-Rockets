@@ -5,6 +5,7 @@ var target;
 
 var magnitude = 0.5;
 var lifespan = 300;
+var decisionRate = 2;
 
 var rx, ry, rw, rh;
 
@@ -33,8 +34,8 @@ function draw(){
 		count=0;
 	}
 
-	fill(255);
-	rect(width/2-250, height*0.75, 500, 10);
+	// fill(255);
+	// rect(width/2-250, height*0.75, 500, 10);
 
 	// rect(width*0.25-100, height*0.40, 200, 10);
 	// rect(width*0.75-100, height*0.40, 200, 10);

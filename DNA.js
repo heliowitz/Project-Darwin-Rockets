@@ -3,9 +3,8 @@ function DNA(genes){
 		this.genes = genes;
 	} else {
 		this.genes = [];
-		for (var i = 0 ; i < lifespan; i++) {
-			this.genes[i] = p5.Vector.random2D();
-			this.genes[i].setMag(magnitude);
+		for (var i = 0 ; i < lifespan/decisionRate; i++) {
+			this.genes[i] = random(-0.1745, 0.1745);
 		}
 	}
 	this.crossover = function(partnerDNA){
@@ -23,9 +22,8 @@ function DNA(genes){
 
 	this.mutation = function(){
 		for (var i = 0; i < this.genes.length; i++){
-			if (random(1) < 0.01){
-				this.genes[i] = p5.Vector.random2D();
-				this.genes[i].setMag(3);
+			if (random(100) < 1){
+				this.genes[i] = random(-0.1745, 0.1745);
 			}
 		}
 	}
