@@ -3,6 +3,7 @@ function Rocket(dna){
 	this.vel=createVector();
 	this.acc=createVector();
 	this.reached = false;
+	this.crashed = false;
 
 	if (dna){
 		this.dna=dna;
@@ -17,6 +18,9 @@ function Rocket(dna){
 		if (this.reached){
 			this.fitness *= 10;
 		}
+		if (this.crashed){
+			this.fitness = 1;
+		}
 	}
 
 	this.applyForce = function(force){
@@ -29,7 +33,13 @@ function Rocket(dna){
 			this.reached = true;
 			this.pos = target.copy();
 		}
-		if (!this.reached){
+		// Collision detection
+		if (this.pos.x > rx && this.pos.x < rx + rw 
+			&& this.pos.y > ry && this.pos.y < ry+rh){
+			this.crashed = true;
+		}
+
+		if (!this.reached && !this.crashed){
 			this.vel.add(this.acc);
 			this.pos.add(this.vel);
 			this.acc.mult(0);
