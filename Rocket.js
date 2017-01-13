@@ -35,13 +35,8 @@ function Rocket(dna){
 			this.pos = target.copy();
 		}
 
-		if (this.pos.x > rx && this.pos.x < rx + rw 
-			&& this.pos.y > ry && this.pos.y < ry+rh){
-			this.crashed = true;
-		}
-
-		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
-			this.crashed=true;
+		if (this.collisionDetection()){ 
+			this.crashed=true; 
 		}
 
 		if (!this.reached && !this.crashed){
@@ -62,9 +57,31 @@ function Rocket(dna){
 		}
 	}
 
-	// this.collisionDetection = function(){
+	this.collisionDetection = function(){
+		collision = false;
 		
-	// }
+		// Edges
+		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
+			collision=true;
+		}
+
+		if (this.pos.x > r1x && this.pos.x < r1x + rw 
+			&& this.pos.y > r1y && this.pos.y < r1y+rh){
+			collision = true;
+		}
+
+		else if (this.pos.x > r2x && this.pos.x < r2x + rw 
+			&& this.pos.y > r2y && this.pos.y < r2y+rh){
+			collision = true;
+		}
+
+		else if (this.pos.x > r3x && this.pos.x < r3x + rw 
+			&& this.pos.y > r3y && this.pos.y < r3y+rh){
+			collision = true;
+		}
+
+		return collision;
+	}
 
 	this.show = function(){
 		var theta = this.vel.heading() + radians(90);

@@ -4,7 +4,7 @@ function DNA(genes){
 	} else {
 		this.genes = [];
 		for (var i = 0 ; i < lifespan/decisionRate; i++) {
-			this.genes[i] = random(-0.2745, 0.2745);
+			this.genes[i] = random(-0.2545, 0.2545);
 		}
 	}
 	this.crossover = function(partnerDNA){
