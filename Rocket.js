@@ -14,9 +14,9 @@ function Rocket(dna){
 
 	this.calcFitness = function(){
 		var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-		this.fitness = map(d,0,width, width,0);
+		this.fitness = map(d,0,width, width,0) + count*5;
 		if (this.reached){
-			this.fitness *= 10;
+			this.fitness = this.fitness*10 + count*10;
 		}
 		if (this.crashed){
 			this.fitness /=10;
