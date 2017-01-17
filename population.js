@@ -25,7 +25,7 @@ function Population(){
 
 		this.matingPool = [];
 		for (var i = 0; i < this.popsize; i++){
-			var n = this.rockets[i].fitness*100;
+			var n = Math.pow(this.rockets[i].fitness*100, 2);
 			for (var j = 0; j<n; j++){
 				this.matingPool.push(this.rockets[i]);
 			}
