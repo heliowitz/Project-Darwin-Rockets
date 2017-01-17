@@ -20,9 +20,9 @@ function Rocket(dna){
 		if (this.reached){
 			this.fitness = this.fitness*50;
 		}
-		if (this.crashed){
-			this.fitness /=50;
-		}
+		// if (this.crashed){
+		// 	this.fitness;
+		// }
 	}
 
 	this.applyForce = function(force){

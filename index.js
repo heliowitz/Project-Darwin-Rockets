@@ -9,7 +9,7 @@ var decisionRate = 1;
 
 var rw = 100;
 var rh = 10;
-var rows = [3,2,3];
+var rows = [3,2,3,2];
 var rects = [];
 
 function setup() {
@@ -26,7 +26,6 @@ function setup() {
 			rects.push({xpos: blockXPos, ypos: rowYPos, w: rw, h: rh});	
 		}
 	}
-
 }
 
 function draw(){
