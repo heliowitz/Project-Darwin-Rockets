@@ -44,5 +44,6 @@ function draw(){
 		rect(rects[i].xpos, rects[i].ypos, rects[i].w, rects[i].h);
 	}
 
+	fill(0,255,0,150);
 	ellipse(target.x, target.y, 16,16, 150);
 }
