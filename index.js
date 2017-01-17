@@ -9,7 +9,7 @@ var decisionRate = 1;
 
 var rw = 100;
 var rh = 10;
-var rows = [3,2,3,2];
+var rows = [3,2,3,2,3];
 var rects = [];
 
 function setup() {

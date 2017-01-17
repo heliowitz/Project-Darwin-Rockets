@@ -16,13 +16,10 @@ function Rocket(dna){
 
 	this.calcFitness = function(){
 		var d = dist(this.pos.x, this.pos.y, target.x, target.y);
-		this.fitness = map(d,0,width, width,0);
+		this.fitness = map(d+this.time,0,width, width,0);
 		if (this.reached){
 			this.fitness = this.fitness*50;
 		}
-		// if (this.crashed){
-		// 	this.fitness;
-		// }
 	}
 
 	this.applyForce = function(force){
