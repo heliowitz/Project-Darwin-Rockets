@@ -7,7 +7,6 @@ var magnitude = 0.5;
 var lifespan = 350;
 var decisionRate = 1;
 
-// var r1x, r1y, r2x, r2y, r3x, r3y, rw, rh;
 var rw = 100;
 var rh = 10;
 var rows = [3,2,3];
