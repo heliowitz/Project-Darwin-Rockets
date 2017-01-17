@@ -62,25 +62,25 @@ function Rocket(dna){
 	this.collisionDetection = function(){
 		collision = false;
 		
-		// Edges
-		if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
-			collision=true;
-		}
+		// // Edges
+		// if (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0){
+		// 	collision=true;
+		// }
 
-		if (this.pos.x > r1x && this.pos.x < r1x + rw 
-			&& this.pos.y > r1y && this.pos.y < r1y+rh){
-			collision = true;
-		}
+		// if (this.pos.x > r1x && this.pos.x < r1x + rw 
+		// 	&& this.pos.y > r1y && this.pos.y < r1y+rh){
+		// 	collision = true;
+		// }
 
-		else if (this.pos.x > r2x && this.pos.x < r2x + rw 
-			&& this.pos.y > r2y && this.pos.y < r2y+rh){
-			collision = true;
-		}
+		// else if (this.pos.x > r2x && this.pos.x < r2x + rw 
+		// 	&& this.pos.y > r2y && this.pos.y < r2y+rh){
+		// 	collision = true;
+		// }
 
-		else if (this.pos.x > r3x && this.pos.x < r3x + rw 
-			&& this.pos.y > r3y && this.pos.y < r3y+rh){
-			collision = true;
-		}
+		// else if (this.pos.x > r3x && this.pos.x < r3x + rw 
+		// 	&& this.pos.y > r3y && this.pos.y < r3y+rh){
+		// 	collision = true;
+		// }
 
 		return collision;
 	}

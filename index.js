@@ -7,24 +7,27 @@ var magnitude = 0.5;
 var lifespan = 350;
 var decisionRate = 1;
 
-var r1x, r1y, r2x, r2y, r3x, r3y, rw, rh;
-
+// var r1x, r1y, r2x, r2y, r3x, r3y, rw, rh;
+var rw = 100;
+var rh = 10;
+var rows = [3,2,3];
+var rects = [];
 
 function setup() {
-	createCanvas(900,600);
+	createCanvas(900,700);
 	rocket = new Rocket();
 	population = new Population();
 
 	target=createVector(width/2, 50);
 
-	rw = 200;
-	r1x = width/2-100;
-	r1y = height*0.50;
-	r2x = width*0.25-100;
-	r2y = height*0.30
-	r3x = width*0.75-100;
-	r3y = height*0.30
-	rh = 10;
+	for (var i = 0; i < rows.length; i++){
+		rowYPos = height * ((100/(rows.length+1) * (i+1))/100.00);
+		for (var j = 0; j<rows[i] ; j++){
+			blockXPos = (width * ((100/(rows[i]+1) * (j+1))/100.00)) - rw/2;
+			rects.push({xpos: blockXPos, ypos: rowYPos, w: rw, h: rh});	
+		}
+	}
+
 }
 
 function draw(){
@@ -39,9 +42,9 @@ function draw(){
 	}
 
 	fill(255, 150);
-	rect(r1x, r1y, rw, rh);
-	rect(r2x, r2y, rw, rh);
-	rect(r3x, r3y, rw, rh);
+	for (var i=0; i<rects.length; i++){
+		rect(rects[i].xpos, rects[i].ypos, rects[i].w, rects[i].h);
+	}
 
 	ellipse(target.x, target.y, 16,16, 150);
 }
