@@ -67,23 +67,12 @@ function Rocket(dna){
 			collision=true;
 		}
 
-		// if (this.pos.x > r1x && this.pos.x < r1x + rw 
-		// 	&& this.pos.y > r1y && this.pos.y < r1y+rh){
-		// 	collision = true;
-		// }
-
-		// else if (this.pos.x > r2x && this.pos.x < r2x + rw 
-		// 	&& this.pos.y > r2y && this.pos.y < r2y+rh){
-		// 	collision = true;
-		// }
-
-		// else if (this.pos.x > r3x && this.pos.x < r3x + rw 
-		// 	&& this.pos.y > r3y && this.pos.y < r3y+rh){
-		// 	collision = true;
-		// }
-
-		
-
+		for (var i=0; i<rects.length; i++){
+			if (this.pos.x > rects[i].xpos && this.pos.x < rects[i].xpos + rw 
+				&& this.pos.y > rects[i].ypos && this.pos.y < rects[i].ypos+rh){
+				collision = true;
+			}			
+		}
 		return collision;
 	}
 
